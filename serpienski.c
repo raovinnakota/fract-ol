@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 13:32:09 by rvinnako          #+#    #+#             */
-/*   Updated: 2018/01/16 16:19:45 by rvinnako         ###   ########.fr       */
+/*   Updated: 2018/01/17 14:36:35 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void		serpienski(t_square *square, t_env *env, int limit)
 	inner = inner_square(square->x1, square->y1, square->width);
 	draw_square(inner, env);
 	list = square_list(inner);
-
 	while (i < 8)
 	{
 		serpienski(&list[i], env, limit - 1);
@@ -88,7 +87,8 @@ void		draw_square(t_square *square, t_env *env)
 		j = square->x1;
 		while (j < (square->width + square->x1))
 		{
-			mlx_pixel_put(env->mlx_ptr, env->win_ptr, j, i, 0x00FF00);
+			//mlx_pixel_put(env->mlx_ptr, env->win_ptr, j, i, 0xFFFFFF);
+			env->pixels[j + i * env->winx] = 0xFFFFFF;
 			j++;
 		}
 		i++;
@@ -104,10 +104,13 @@ void	draw_serpienski(void)
 	env = init_env();
 	env->mlx_ptr = mlx_init();
 	env->win_ptr = mlx_new_window(env->mlx_ptr, env->winx, env->winy, "Serpienski");
+	env->img_ptr = mlx_new_image(env->mlx_ptr, env->winx, env->winy);
+	env->pixels = (int*)mlx_get_data_addr(env->img_ptr, &(env->bpp), &(env->size_line), &(env->endian));
 	outer = init_square();
 	outer->x1 = 0;
 	outer->y1 = 0;
 	outer->width = env->winx;
 	serpienski(outer, env, env->limit);
+	mlx_put_image_to_window(env->mlx_ptr, env->win_ptr, env->img_ptr, 0, 0);
 	mlx_loop(env->mlx_ptr);
 }

@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 13:28:59 by rvinnako          #+#    #+#             */
-/*   Updated: 2018/01/16 16:10:23 by rvinnako         ###   ########.fr       */
+/*   Updated: 2018/01/17 14:01:49 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ typedef struct		s_env
 	int				winx;
 	int				winy;
 	int				limit;
+	int				bpp;
+	int				size_line;
+	int				endian;
 	int				*pixels;
 	void			*mlx_ptr;
 	void			*win_ptr;
