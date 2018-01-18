@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 13:28:59 by rvinnako          #+#    #+#             */
-/*   Updated: 2018/01/17 14:01:49 by rvinnako         ###   ########.fr       */
+/*   Updated: 2018/01/17 16:29:28 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,20 +33,11 @@ typedef struct		s_env
 	void			*img_ptr;
 }					t_env;
 
-typedef struct		s_square
-{
-	int				x1;
-	int				y1;
-	int				width;
-}					t_square;
+int		my_key_funct(int keycode, void *param);
 
 t_env		*init_env(void);
-t_square	*init_square(void);
-t_square	set_square(int x1, int y1, int len);
-t_square	*square_list(t_square *outer_square);
-t_square	*inner_square(int x1, int y1, int length);
-void		draw_square(t_square *square, t_env *env);
-void		serpienski(t_square *square, t_env *env, int limit);
+int			in_serpienski(int x, int y);
+void		set_serpienski(t_env *env);
 void		draw_serpienski(void);
 
 #endif
