@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 13:32:09 by rvinnako          #+#    #+#             */
-/*   Updated: 2018/01/17 16:30:34 by rvinnako         ###   ########.fr       */
+/*   Updated: 2018/01/18 13:02:14 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,19 +46,12 @@ void	set_serpienski(t_env *env)
 void	draw_serpienski(void)
 {
 	t_env		*env;
-	//t_square	*outer;
-	//t_square	*list;
 
 	env = init_env();
 	env->mlx_ptr = mlx_init();
 	env->win_ptr = mlx_new_window(env->mlx_ptr, env->winx, env->winy, "Serpienski");
 	env->img_ptr = mlx_new_image(env->mlx_ptr, env->winx, env->winy);
 	env->pixels = (int*)mlx_get_data_addr(env->img_ptr, &(env->bpp), &(env->size_line), &(env->endian));
-	//outer = init_square();
-	//outer->x1 = 0;
-	//outer->y1 = 0;
-	//outer->width = env->winx;
-	//serpienski(outer, env, env->limit);
 	set_serpienski(env);
 	mlx_put_image_to_window(env->mlx_ptr, env->win_ptr, env->img_ptr, 0, 0);
 	mlx_key_hook(env->win_ptr, my_key_funct, 0);
