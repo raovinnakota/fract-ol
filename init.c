@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 17:05:45 by rvinnako          #+#    #+#             */
-/*   Updated: 2018/01/17 16:24:39 by rvinnako         ###   ########.fr       */
+/*   Updated: 2018/01/18 16:33:41 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,11 @@ t_env		*init_env(void)
 	env->bpp = 0;
 	env->size_line = 0;
 	env->endian = 0;
-	env->pixels = NULL;
+	env->xzoom = 1;
+	env->yzoom = 1;
+	env->xoff = 0;
+	env->yoff = 0;
+	env->input = NULL;
 	env->pixels = NULL;
 	env->mlx_ptr = NULL;
 	env->win_ptr = NULL;

@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 13:28:59 by rvinnako          #+#    #+#             */
-/*   Updated: 2018/01/17 16:29:28 by rvinnako         ###   ########.fr       */
+/*   Updated: 2018/01/18 16:33:25 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,22 @@ typedef struct		s_env
 	int				bpp;
 	int				size_line;
 	int				endian;
+	float			xzoom;
+	float			yzoom;
+	int				xoff;
+	int				yoff;
+	char			*input;
 	int				*pixels;
 	void			*mlx_ptr;
 	void			*win_ptr;
 	void			*img_ptr;
 }					t_env;
 
-int		my_key_funct(int keycode, void *param);
-
 t_env		*init_env(void);
+
+int		my_key_funct(int keycode, t_env *env);
 int			in_serpienski(int x, int y);
+
 void		set_serpienski(t_env *env);
 void		draw_serpienski(void);
 
