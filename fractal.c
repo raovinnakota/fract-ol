@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 16:05:36 by rvinnako          #+#    #+#             */
-/*   Updated: 2018/01/18 17:25:54 by rvinnako         ###   ########.fr       */
+/*   Updated: 2018/01/18 17:54:30 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,27 +16,27 @@ int		my_key_funct(int keycode, t_env *env)
 {
 	if (keycode == 53)
 		exit(0);
-	if (keycode == 0)
+	if (keycode == 123)
 	{
-		env->xoff += -5;
+		env->xoff += -7;
 		if (ft_strcmp(env->input, "serpienski") == 0)
 			set_serpienski(env);
 	}
-	if (keycode == 1)
+	if (keycode == 125)
 	{
-		env->yoff += 5;
+		env->yoff += 7;
 		if (ft_strcmp(env->input, "serpienski") == 0)
 			set_serpienski(env);
 	}
-	if (keycode == 2)
+	if (keycode == 124)
 	{
-		env->xoff += 5;
+		env->xoff += 7;
 		if (ft_strcmp(env->input, "serpienski") == 0)
 			set_serpienski(env);
 	}
-	if (keycode == 13)
+	if (keycode == 126)
 	{
-		env->yoff += -5;
+		env->yoff += -7;
 		if (ft_strcmp(env->input, "serpienski") == 0)
 			set_serpienski(env);
 	}
