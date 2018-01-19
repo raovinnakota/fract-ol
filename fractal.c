@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 16:05:36 by rvinnako          #+#    #+#             */
-/*   Updated: 2018/01/18 17:54:30 by rvinnako         ###   ########.fr       */
+/*   Updated: 2018/01/18 18:33:34 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,10 @@ int		main(int ac, char **av)
 		ft_putstr("[Usage] ./fractal <fractal> \nAvailable fractals:\n-->serpienski\n");
 		return (0);
 	}
-	if (ft_strcmp(av[1],"serpienski") || ft_strcmp(av[1], "Serpienski"))
+	if (ft_strcmp(av[1],"serpienski") == 0 || ft_strcmp(av[1], "Serpienski") == 0)
 		draw_serpienski();
+
+	/*if (ft_strcmp(av[1], "Mandelbrot") == 0 || ft_strcmp(av[1], "mandelbrot") == 0)
+		draw_mandelbrot();*/
 	return (0);
 }

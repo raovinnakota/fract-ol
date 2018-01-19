@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 13:28:59 by rvinnako          #+#    #+#             */
-/*   Updated: 2018/01/18 17:21:10 by rvinnako         ###   ########.fr       */
+/*   Updated: 2018/01/18 18:34:47 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,14 @@ typedef struct		s_env
 	void			*img_ptr;
 }					t_env;
 
-t_env		*init_env(void);
+t_env				*init_env(void);
 
-int			my_key_funct(int keycode, t_env *env);
-int			in_serpienski(int x, int y);
-int			my_mouse_funct(int keycode, int x, int y, t_env *env);
+int					my_key_funct(int keycode, t_env *env);
+int					in_serpienski(int x, int y);
+int					my_mouse_funct(int keycode, int x, int y, t_env *env);
 
-void		set_serpienski(t_env *env);
-void		draw_serpienski(void);
+void				set_serpienski(t_env *env);
+void				draw_serpienski(void);
+void				draw_mandelbrot(void);
 
 #endif
