@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 13:28:59 by rvinnako          #+#    #+#             */
-/*   Updated: 2018/01/18 18:34:47 by rvinnako         ###   ########.fr       */
+/*   Updated: 2018/01/19 17:02:45 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,24 @@ typedef struct		s_env
 	void			*img_ptr;
 }					t_env;
 
+typedef struct		s_mandelbrot
+{
+	float			cx;
+	float			cy;
+	float			u;
+	float			u2;
+	float			v;
+	float			v2;
+	int				pix_y;
+	int				pix_x;
+	int				iter;
+	int				max_iter;
+	int				bound;
+}					t_mandelbrot;
+
 t_env				*init_env(void);
+
+t_mandelbrot		*init_mandelbrot(void);
 
 int					my_key_funct(int keycode, t_env *env);
 int					in_serpienski(int x, int y);

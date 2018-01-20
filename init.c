@@ -6,13 +6,13 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 17:05:45 by rvinnako          #+#    #+#             */
-/*   Updated: 2018/01/18 18:38:07 by rvinnako         ###   ########.fr       */
+/*   Updated: 2018/01/19 17:03:02 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractal.h"
 
-t_env		*init_env(void)
+t_env			*init_env(void)
 {
 	t_env	*env;
 
@@ -33,4 +33,24 @@ t_env		*init_env(void)
 	env->win_ptr = NULL;
 	env->img_ptr = NULL;
 	return (env);
+}
+
+t_mandelbrot	*init_mandelbrot(void)
+{
+	t_mandelbrot *mandelbrot;
+
+	mandelbrot = (t_mandelbrot*)malloc(sizeof(t_mandelbrot));
+	mandelbrot->cx = 0;
+	mandelbrot->cy = 0;
+	mandelbrot->u = 0;
+	mandelbrot->u2 = 0;
+	mandelbrot->v = 0;
+	mandelbrot->v2 = 0;
+	mandelbrot->pix_y = 0;
+	mandelbrot->pix_x = 0;
+	mandelbrot->iter = 0;
+	mandelbrot->max_iter = 100;
+	mandelbrot->bound = 16;
+
+	return (mandelbrot);
 }
