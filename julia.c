@@ -1,43 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandelbrot.c                                       :+:      :+:    :+:   */
+/*   julia.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/18 18:27:48 by rvinnako          #+#    #+#             */
-/*   Updated: 2018/01/23 13:22:25 by rvinnako         ###   ########.fr       */
+/*   Created: 2018/01/23 12:13:43 by rvinnako          #+#    #+#             */
+/*   Updated: 2018/01/23 13:41:24 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractal.h"
-
-
-int		in_mandelbrot(t_env *env, int x, int y)
+int		in_julia(t_env *env, int x, int y)
 {
-	t_mandelbrot	*brot;
+	t_mandelbrot	*julia;
 
-	brot = init_mandelbrot();
-	env->scale = (env->winx / (brot->max_x - brot->min_x));
-	brot->u = (((float)(x) - (env->winx/2))/(env->scale * env->xzoom));
-	brot->v = (((env->winy/2) - (float)(y))/(env->scale * env->yzoom));
-	brot->ju = brot->u;
-	brot->jv = brot->v;
-	brot->iter = 0;
-	while(brot->iter < brot->max_iter && fabs(brot->u2) + fabs(brot->v2) <= brot->bound)
+	julia = init_mandelbrot();
+	env->scale = (env->winx / (julia->max_x - julia->min_x));
+	julia->u = (((float)(x) - (env->winx/2))/(env->scale * env->xzoom));
+	julia->v = (((env->winy/2) - (float)(y))/(env->scale * env->yzoom));
+	julia->ju = env->u0;
+	julia->jv = env->v0;
+	julia->iter = 0;
+	while (julia->iter < julia->max_iter && julia->u + julia->v <= julia->bound)
 	{
-		brot->u2 = (brot->u * brot->u) - (brot->v * brot->v);
-		brot->v2 = 2 * brot->u * brot->v;
-		brot->u = brot->u2 + brot->ju;
-		brot->v = brot->v2 + brot->jv;
-		(brot->iter)++;
+		julia->u2 = (julia->u * julia->u) - (julia->v * julia->v);
+		julia->v2 = (2 * julia->u * julia->v);
+		julia->u = julia->u2 + julia->ju;
+		julia->v = julia->v2 + julia->v2;
+		(julia->iter)++;
 	}
-	if (brot->iter < brot->max_iter)
-		return (0);
-	return (0xFFFFFF);
+	if (julia->iter < julia->max_iter)
+		return (0xFFFFFF);
+	return (0);
 }
 
-void	set_mandelbrot(t_env *env)
+void	set_julia(t_env *env)
 {
 	int		i;
 	int		j;
@@ -52,7 +50,7 @@ void	set_mandelbrot(t_env *env)
 		{
 			x = j + env->xoff;
 			y = i + env->yoff;
-			env->pixels[j + i * env->winx] = in_mandelbrot(env, x, y);
+			env->pixels[j + i * env->winx] = in_julia(env, x, y);
 			j++;
 		}
 		i++;
@@ -60,18 +58,19 @@ void	set_mandelbrot(t_env *env)
 	mlx_put_image_to_window(env->mlx_ptr, env->win_ptr, env->img_ptr, 0, 0);
 }
 
-void	draw_mandelbrot(void)
+void	draw_julia(void)
 {
 	t_env	*env;
 
 	env = init_env();
-	env->input = "mandelbrot";
+	env->input = "julia";
 	env->mlx_ptr = mlx_init();
 	env->win_ptr = mlx_new_window(env->mlx_ptr, env->winx, env->winy, "Mandelbrot");
 	env->img_ptr = mlx_new_image(env->mlx_ptr, env->winx, env->winy);
 	env->pixels = (int*)mlx_get_data_addr(env->img_ptr, &(env->bpp), &(env->size_line), &(env->endian));
-	set_mandelbrot(env);
+	set_julia(env);
 	mlx_key_hook(env->win_ptr, my_key_funct, env);
 	mlx_mouse_hook(env->win_ptr, my_mouse_funct, env);
+	mlx_hook(env->win_ptr, 6, 0, my_mouse_motion, env);
 	mlx_loop(env->mlx_ptr);
 }

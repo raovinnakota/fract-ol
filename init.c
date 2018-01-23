@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 17:05:45 by rvinnako          #+#    #+#             */
-/*   Updated: 2018/01/22 18:54:21 by rvinnako         ###   ########.fr       */
+/*   Updated: 2018/01/23 13:06:02 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ t_env			*init_env(void)
 	env->scale = 0;
 	env->xzoom = 1;
 	env->yzoom = 1;
-	env->x0 = 0;
-	env->y0 = 0;
+	env->u0 = 0;
+	env->v0 = 0;
 	env->xoff = 0;
 	env->yoff = 0;
 	env->input = NULL;
@@ -53,8 +53,6 @@ t_mandelbrot	*init_mandelbrot(void)
 	mandelbrot->min_y = -5;
 	mandelbrot->max_x = 5;
 	mandelbrot->max_y = 5;
-	mandelbrot->pix_y = 0;
-	mandelbrot->pix_x = 0;
 	mandelbrot->iter = 0;
 	mandelbrot->max_iter = 25;
 	mandelbrot->bound = 16;

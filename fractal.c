@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 16:05:36 by rvinnako          #+#    #+#             */
-/*   Updated: 2018/01/22 18:36:24 by rvinnako         ###   ########.fr       */
+/*   Updated: 2018/01/23 13:39:06 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ int		my_key_funct(int keycode, t_env *env)
 			set_serpienski(env);
 		if (ft_strcmp(env->input, "mandelbrot") == 0)
 			set_mandelbrot(env);
+		if (ft_strcmp(env->input, "julia") == 0)
+			set_julia(env);
 	}
 	if (keycode == 125)
 	{
@@ -31,6 +33,8 @@ int		my_key_funct(int keycode, t_env *env)
 			set_serpienski(env);
 		if (ft_strcmp(env->input, "mandelbrot") == 0)
 			set_mandelbrot(env);
+		if (ft_strcmp(env->input, "julia") == 0)
+			set_julia(env);
 	}
 	if (keycode == 124)
 	{
@@ -39,6 +43,8 @@ int		my_key_funct(int keycode, t_env *env)
 			set_serpienski(env);
 		if (ft_strcmp(env->input, "mandelbrot") == 0)
 			set_mandelbrot(env);
+		if (ft_strcmp(env->input, "julia") == 0)
+			set_julia(env);
 	}
 	if (keycode == 126)
 	{
@@ -47,6 +53,8 @@ int		my_key_funct(int keycode, t_env *env)
 			set_serpienski(env);
 		if (ft_strcmp(env->input, "mandelbrot") == 0)
 			set_mandelbrot(env);
+		if (ft_strcmp(env->input, "julia") == 0)
+			set_julia(env);
 	}
 	return (0);
 }
@@ -55,8 +63,6 @@ int		my_mouse_funct(int keycode, int x, int y, t_env *env)
 {
 	if (!x || !y)
 		exit(0);
-	//env->xoff += x;
-	//env->yoff += y;
 	if (keycode == 4)
 	{
 		env->xzoom *= 1.05;
@@ -65,6 +71,8 @@ int		my_mouse_funct(int keycode, int x, int y, t_env *env)
 			set_serpienski(env);
 		if (ft_strcmp(env->input, "mandelbrot") == 0)
 			set_mandelbrot(env);
+		if (ft_strcmp(env->input, "julia") == 0)
+			set_julia(env);
 	}
 	if (keycode == 5)
 	{
@@ -74,21 +82,34 @@ int		my_mouse_funct(int keycode, int x, int y, t_env *env)
 			set_serpienski(env);
 		if (ft_strcmp(env->input, "mandelbrot") == 0)
 			set_mandelbrot(env);
+		if (ft_strcmp(env->input, "julia") == 0)
+			set_julia(env);
 	}
 	return (0);
 }
 
+int		my_mouse_motion(int x, int y, t_env *env)
+{
+	env->u0 = (((float)(x) - (env->winx/2))/(env->scale * env->xzoom));
+	env->v0 = (((env->winy/2) - (float)(y))/(env->scale * env->yzoom));
+	if (ft_strcmp(env->input, "julia") == 0)
+		set_julia(env);
+	return (0);
+}
 
 int		main(int ac, char **av)
 {
 	if (ac < 2 || ac > 2)
 	{
-		ft_putstr("[Usage] ./fractal <fractal>\nAvailable fractals:\nserpienski\nmandelbrot\n");
+		ft_putstr("[Usage] ./fractal <fractal>\n");
+		ft_putstr("Available fractals:\nserpienski\nmandelbrot\njulia\n");
 		return (0);
 	}
-	if (ft_strcmp(av[1],"serpienski") == 0 || ft_strcmp(av[1], "Serpienski") == 0)
+	if (ft_strcmp(av[1],"serpienski") == 0)
 		draw_serpienski();
-	if (ft_strcmp(av[1], "Mandelbrot") == 0 || ft_strcmp(av[1], "mandelbrot") == 0)
+	if (ft_strcmp(av[1], "mandelbrot") == 0)
 		draw_mandelbrot();
+	if (ft_strcmp(av[1], "julia") == 0)
+		draw_julia();
 	return (0);
 }

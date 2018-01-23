@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 13:28:59 by rvinnako          #+#    #+#             */
-/*   Updated: 2018/01/22 18:05:35 by rvinnako         ###   ########.fr       */
+/*   Updated: 2018/01/23 13:39:34 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ typedef struct		s_env
 	int				scale;
 	float			xzoom;
 	float			yzoom;
-	float			x0;
-	float			y0;
+	float			u0;
+	float			v0;
 	int				xoff;
 	int				yoff;
 	char			*input;
@@ -53,8 +53,6 @@ typedef struct		s_mandelbrot
 	float			min_y;
 	float			max_x;
 	float			max_y;
-	int				pix_y;
-	int				pix_x;
 	int				iter;
 	int				max_iter;
 	int				bound;
@@ -67,9 +65,13 @@ t_mandelbrot		*init_mandelbrot(void);
 int					my_key_funct(int keycode, t_env *env);
 int					in_serpienski(int x, int y);
 int					my_mouse_funct(int keycode, int x, int y, t_env *env);
+int					my_mouse_motion(int x, int y, t_env *env);
 
 void				set_serpienski(t_env *env);
 void				draw_serpienski(void);
 void				set_mandelbrot(t_env *env);
 void				draw_mandelbrot(void);
+void				set_julia(t_env *env);
+void				draw_julia(void);
+
 #endif
