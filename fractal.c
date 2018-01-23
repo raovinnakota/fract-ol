@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 16:05:36 by rvinnako          #+#    #+#             */
-/*   Updated: 2018/01/19 17:30:25 by rvinnako         ###   ########.fr       */
+/*   Updated: 2018/01/22 18:36:24 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,24 +21,32 @@ int		my_key_funct(int keycode, t_env *env)
 		env->xoff += -7;
 		if (ft_strcmp(env->input, "serpienski") == 0)
 			set_serpienski(env);
+		if (ft_strcmp(env->input, "mandelbrot") == 0)
+			set_mandelbrot(env);
 	}
 	if (keycode == 125)
 	{
 		env->yoff += 7;
 		if (ft_strcmp(env->input, "serpienski") == 0)
 			set_serpienski(env);
+		if (ft_strcmp(env->input, "mandelbrot") == 0)
+			set_mandelbrot(env);
 	}
 	if (keycode == 124)
 	{
 		env->xoff += 7;
 		if (ft_strcmp(env->input, "serpienski") == 0)
 			set_serpienski(env);
+		if (ft_strcmp(env->input, "mandelbrot") == 0)
+			set_mandelbrot(env);
 	}
 	if (keycode == 126)
 	{
 		env->yoff += -7;
 		if (ft_strcmp(env->input, "serpienski") == 0)
 			set_serpienski(env);
+		if (ft_strcmp(env->input, "mandelbrot") == 0)
+			set_mandelbrot(env);
 	}
 	return (0);
 }
@@ -55,6 +63,8 @@ int		my_mouse_funct(int keycode, int x, int y, t_env *env)
 		env->yzoom *= 1.05;
 		if (ft_strcmp(env->input, "serpienski") == 0)
 			set_serpienski(env);
+		if (ft_strcmp(env->input, "mandelbrot") == 0)
+			set_mandelbrot(env);
 	}
 	if (keycode == 5)
 	{
@@ -62,6 +72,8 @@ int		my_mouse_funct(int keycode, int x, int y, t_env *env)
 		env->yzoom /= 1.05;
 		if (ft_strcmp(env->input, "serpienski") == 0)
 			set_serpienski(env);
+		if (ft_strcmp(env->input, "mandelbrot") == 0)
+			set_mandelbrot(env);
 	}
 	return (0);
 }
