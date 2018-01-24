@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 17:05:45 by rvinnako          #+#    #+#             */
-/*   Updated: 2018/01/23 13:06:02 by rvinnako         ###   ########.fr       */
+/*   Updated: 2018/01/23 16:51:06 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,10 @@ t_mandelbrot	*init_mandelbrot(void)
 	mandelbrot->u2 = 0;
 	mandelbrot->v = 0;
 	mandelbrot->v2 = 0;
-	mandelbrot->min_x = -5;
-	mandelbrot->min_y = -5;
-	mandelbrot->max_x = 5;
-	mandelbrot->max_y = 5;
+	mandelbrot->min_x = -2;
+	mandelbrot->min_y = -2;
+	mandelbrot->max_x = 2;
+	mandelbrot->max_y = 2;
 	mandelbrot->iter = 0;
 	mandelbrot->max_iter = 25;
 	mandelbrot->bound = 16;

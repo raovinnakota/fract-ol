@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 16:05:36 by rvinnako          #+#    #+#             */
-/*   Updated: 2018/01/23 13:39:06 by rvinnako         ###   ########.fr       */
+/*   Updated: 2018/01/23 16:50:56 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,12 @@ int		my_mouse_funct(int keycode, int x, int y, t_env *env)
 
 int		my_mouse_motion(int x, int y, t_env *env)
 {
-	env->u0 = (((float)(x) - (env->winx/2))/(env->scale * env->xzoom));
-	env->v0 = (((env->winy/2) - (float)(y))/(env->scale * env->yzoom));
+	if ((x == env->u0) && (y == env->v0))
+		return (0);
+	if ((x < 0) || (x > env->winx))
+		return (0);
+	env->u0 = ((((double)x - env->winx) / (env->winx / 2)) + 1);
+	env->v0 = ((((double)y - env->winy) / (env->winy / 2)) + 1);
 	if (ft_strcmp(env->input, "julia") == 0)
 		set_julia(env);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/23 12:13:43 by rvinnako          #+#    #+#             */
-/*   Updated: 2018/01/23 13:41:24 by rvinnako         ###   ########.fr       */
+/*   Updated: 2018/01/23 16:43:30 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ int		in_julia(t_env *env, int x, int y)
 		julia->u2 = (julia->u * julia->u) - (julia->v * julia->v);
 		julia->v2 = (2 * julia->u * julia->v);
 		julia->u = julia->u2 + julia->ju;
-		julia->v = julia->v2 + julia->v2;
+		julia->v = julia->v2 + julia->jv;
 		(julia->iter)++;
 	}
 	if (julia->iter < julia->max_iter)
-		return (0xFFFFFF);
-	return (0);
+		return (0);
+	return (0xFFFFFF);
 }
 
 void	set_julia(t_env *env)
@@ -50,7 +50,7 @@ void	set_julia(t_env *env)
 		{
 			x = j + env->xoff;
 			y = i + env->yoff;
-			env->pixels[j + i * env->winx] = in_julia(env, x, y);
+			env->pixels[j + i * env->winx] = in_julia(env, abs(x), abs(y));
 			j++;
 		}
 		i++;
