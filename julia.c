@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/23 12:13:43 by rvinnako          #+#    #+#             */
-/*   Updated: 2018/01/23 18:19:01 by rvinnako         ###   ########.fr       */
+/*   Updated: 2018/01/23 19:06:18 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	set_julia(t_env *env)
 		{
 			x = j + env->xoff;
 			y = i + env->yoff;
-			env->pixels[j + i * env->winx] = in_julia(env, abs(x), abs(y));
+			env->pixels[j + i * env->winx] = in_julia(env, x, y);
 			j++;
 		}
 		i++;
