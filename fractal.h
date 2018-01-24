@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 13:28:59 by rvinnako          #+#    #+#             */
-/*   Updated: 2018/01/23 13:39:34 by rvinnako         ###   ########.fr       */
+/*   Updated: 2018/01/23 17:56:20 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct		s_env
 	float			v0;
 	int				xoff;
 	int				yoff;
+	double			color;
 	char			*input;
 	int				*pixels;
 	void			*mlx_ptr;

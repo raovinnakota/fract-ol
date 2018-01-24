@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/23 12:13:43 by rvinnako          #+#    #+#             */
-/*   Updated: 2018/01/23 17:03:04 by rvinnako         ###   ########.fr       */
+/*   Updated: 2018/01/23 18:08:39 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int		in_julia(t_env *env, int x, int y)
 		(julia->iter)++;
 	}
 	if (julia->iter < julia->max_iter)
-		return (0);
+		return (julia->iter * 0xD3D3D3);
 	return (0xFFFFFF);
 }
 
@@ -72,7 +72,7 @@ void	draw_julia(void)
 	env->pixels = (int*)mlx_get_data_addr(env->img_ptr, &(env->bpp),
 											&(env->size_line), &(env->endian));
 	set_julia(env);
-	mlx_key_hook(env->win_ptr, my_key_funct, env);
+	mlx_hook(env->win_ptr, 2, 0, my_key_funct, env);
 	mlx_mouse_hook(env->win_ptr, my_mouse_funct, env);
 	mlx_hook(env->win_ptr, 6, 0, my_mouse_motion, env);
 	mlx_loop(env->mlx_ptr);

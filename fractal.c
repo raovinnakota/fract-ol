@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 16:05:36 by rvinnako          #+#    #+#             */
-/*   Updated: 2018/01/23 17:11:04 by rvinnako         ###   ########.fr       */
+/*   Updated: 2018/01/23 18:05:36 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ int		my_key_funct(int keycode, t_env *env)
 	if (keycode == 53)
 		exit(0);
 	if (keycode == 123)
-		env->xoff += -7;
+		env->xoff += -5;
 	if (keycode == 125)
-		env->yoff += 7;
+		env->yoff += 5;
 	if (keycode == 124)
-		env->xoff += 7;
+		env->xoff += 5;
 	if (keycode == 126)
-		env->yoff += -7;
+		env->yoff += -5;
 	if (ft_strcmp(env->input, "serpienski") == 0)
 		set_serpienski(env);
 	if (ft_strcmp(env->input, "mandelbrot") == 0)
@@ -60,7 +60,7 @@ int		my_mouse_motion(int x, int y, t_env *env)
 {
 	if ((x == env->u0) && (y == env->v0))
 		return (0);
-	if ((x < 0) || (x > env->winx))
+	if ((x < 0) || (x > env->winx) || (y < 0) || (y > env->winy))
 		return (0);
 	env->u0 = ((((double)x - env->winx) / (env->winx / 2)) + 1);
 	env->v0 = ((((double)y - env->winy) / (env->winy / 2)) + 1);
