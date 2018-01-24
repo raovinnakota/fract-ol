@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 16:05:36 by rvinnako          #+#    #+#             */
-/*   Updated: 2018/01/23 18:33:41 by rvinnako         ###   ########.fr       */
+/*   Updated: 2018/01/23 19:01:17 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,14 +83,13 @@ int		main(int ac, char **av)
 		ft_putstr("Available fractals:\nserpienski\nmandelbrot\njulia\n");
 		return (0);
 	}
-	ft_putstr("To toggle color, use 'a'/'s'\n");
-	ft_putstr("Use the arrow keys to move around\n");
-	ft_putstr("To reset image to initial state, use 'd'");
 	if (ft_strcmp(av[1], "serpienski") == 0)
 		draw_serpienski();
 	if (ft_strcmp(av[1], "mandelbrot") == 0)
 		draw_mandelbrot();
 	if (ft_strcmp(av[1], "julia") == 0)
 		draw_julia();
+	ft_putstr("[Usage] ./fractal <fractal>\n");
+	ft_putstr("Available fractals:\nserpienski\nmandelbrot\njulia\n");
 	return (0);
 }

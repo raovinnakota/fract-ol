@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 17:05:45 by rvinnako          #+#    #+#             */
-/*   Updated: 2018/01/23 18:18:47 by rvinnako         ###   ########.fr       */
+/*   Updated: 2018/01/23 18:44:24 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_env			*init_env(void)
 	env->v0 = 0;
 	env->xoff = 0;
 	env->yoff = 0;
-	env->color = 1;
+	env->color = 5;
 	env->input = NULL;
 	env->pixels = NULL;
 	env->mlx_ptr = NULL;
