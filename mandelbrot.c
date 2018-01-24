@@ -6,12 +6,11 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/18 18:27:48 by rvinnako          #+#    #+#             */
-/*   Updated: 2018/01/23 13:22:25 by rvinnako         ###   ########.fr       */
+/*   Updated: 2018/01/23 17:00:23 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractal.h"
-
 
 int		in_mandelbrot(t_env *env, int x, int y)
 {
@@ -19,12 +18,12 @@ int		in_mandelbrot(t_env *env, int x, int y)
 
 	brot = init_mandelbrot();
 	env->scale = (env->winx / (brot->max_x - brot->min_x));
-	brot->u = (((float)(x) - (env->winx/2))/(env->scale * env->xzoom));
-	brot->v = (((env->winy/2) - (float)(y))/(env->scale * env->yzoom));
+	brot->u = (((float)(x) - (env->winx / 2)) / (env->scale * env->xzoom));
+	brot->v = (((env->winy / 2) - (float)(y)) / (env->scale * env->yzoom));
 	brot->ju = brot->u;
 	brot->jv = brot->v;
-	brot->iter = 0;
-	while(brot->iter < brot->max_iter && fabs(brot->u2) + fabs(brot->v2) <= brot->bound)
+	while (brot->iter < brot->max_iter && fabs(brot->u2) + fabs(brot->v2) <=
+			brot->bound)
 	{
 		brot->u2 = (brot->u * brot->u) - (brot->v * brot->v);
 		brot->v2 = 2 * brot->u * brot->v;
@@ -67,9 +66,11 @@ void	draw_mandelbrot(void)
 	env = init_env();
 	env->input = "mandelbrot";
 	env->mlx_ptr = mlx_init();
-	env->win_ptr = mlx_new_window(env->mlx_ptr, env->winx, env->winy, "Mandelbrot");
+	env->win_ptr = mlx_new_window(env->mlx_ptr, env->winx, env->winy,
+									"Mandelbrot");
 	env->img_ptr = mlx_new_image(env->mlx_ptr, env->winx, env->winy);
-	env->pixels = (int*)mlx_get_data_addr(env->img_ptr, &(env->bpp), &(env->size_line), &(env->endian));
+	env->pixels = (int*)mlx_get_data_addr(env->img_ptr, &(env->bpp),
+					&(env->size_line), &(env->endian));
 	set_mandelbrot(env);
 	mlx_key_hook(env->win_ptr, my_key_funct, env);
 	mlx_mouse_hook(env->win_ptr, my_mouse_funct, env);

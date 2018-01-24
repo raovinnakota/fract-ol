@@ -6,19 +6,20 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/23 12:13:43 by rvinnako          #+#    #+#             */
-/*   Updated: 2018/01/23 16:43:30 by rvinnako         ###   ########.fr       */
+/*   Updated: 2018/01/23 17:03:04 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractal.h"
+
 int		in_julia(t_env *env, int x, int y)
 {
 	t_mandelbrot	*julia;
 
 	julia = init_mandelbrot();
 	env->scale = (env->winx / (julia->max_x - julia->min_x));
-	julia->u = (((float)(x) - (env->winx/2))/(env->scale * env->xzoom));
-	julia->v = (((env->winy/2) - (float)(y))/(env->scale * env->yzoom));
+	julia->u = (((float)(x) - (env->winx / 2)) / (env->scale * env->xzoom));
+	julia->v = (((env->winy / 2) - (float)(y)) / (env->scale * env->yzoom));
 	julia->ju = env->u0;
 	julia->jv = env->v0;
 	julia->iter = 0;
@@ -65,9 +66,11 @@ void	draw_julia(void)
 	env = init_env();
 	env->input = "julia";
 	env->mlx_ptr = mlx_init();
-	env->win_ptr = mlx_new_window(env->mlx_ptr, env->winx, env->winy, "Mandelbrot");
+	env->win_ptr = mlx_new_window(env->mlx_ptr, env->winx, env->winy,
+									"Mandelbrot");
 	env->img_ptr = mlx_new_image(env->mlx_ptr, env->winx, env->winy);
-	env->pixels = (int*)mlx_get_data_addr(env->img_ptr, &(env->bpp), &(env->size_line), &(env->endian));
+	env->pixels = (int*)mlx_get_data_addr(env->img_ptr, &(env->bpp),
+											&(env->size_line), &(env->endian));
 	set_julia(env);
 	mlx_key_hook(env->win_ptr, my_key_funct, env);
 	mlx_mouse_hook(env->win_ptr, my_mouse_funct, env);

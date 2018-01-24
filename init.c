@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 17:05:45 by rvinnako          #+#    #+#             */
-/*   Updated: 2018/01/23 16:51:06 by rvinnako         ###   ########.fr       */
+/*   Updated: 2018/01/23 16:56:49 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,5 @@ t_mandelbrot	*init_mandelbrot(void)
 	mandelbrot->iter = 0;
 	mandelbrot->max_iter = 25;
 	mandelbrot->bound = 16;
-
 	return (mandelbrot);
 }

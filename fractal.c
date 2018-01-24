@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 16:05:36 by rvinnako          #+#    #+#             */
-/*   Updated: 2018/01/23 16:50:56 by rvinnako         ###   ########.fr       */
+/*   Updated: 2018/01/23 17:11:04 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,45 +17,19 @@ int		my_key_funct(int keycode, t_env *env)
 	if (keycode == 53)
 		exit(0);
 	if (keycode == 123)
-	{
 		env->xoff += -7;
-		if (ft_strcmp(env->input, "serpienski") == 0)
-			set_serpienski(env);
-		if (ft_strcmp(env->input, "mandelbrot") == 0)
-			set_mandelbrot(env);
-		if (ft_strcmp(env->input, "julia") == 0)
-			set_julia(env);
-	}
 	if (keycode == 125)
-	{
 		env->yoff += 7;
-		if (ft_strcmp(env->input, "serpienski") == 0)
-			set_serpienski(env);
-		if (ft_strcmp(env->input, "mandelbrot") == 0)
-			set_mandelbrot(env);
-		if (ft_strcmp(env->input, "julia") == 0)
-			set_julia(env);
-	}
 	if (keycode == 124)
-	{
 		env->xoff += 7;
-		if (ft_strcmp(env->input, "serpienski") == 0)
-			set_serpienski(env);
-		if (ft_strcmp(env->input, "mandelbrot") == 0)
-			set_mandelbrot(env);
-		if (ft_strcmp(env->input, "julia") == 0)
-			set_julia(env);
-	}
 	if (keycode == 126)
-	{
 		env->yoff += -7;
-		if (ft_strcmp(env->input, "serpienski") == 0)
-			set_serpienski(env);
-		if (ft_strcmp(env->input, "mandelbrot") == 0)
-			set_mandelbrot(env);
-		if (ft_strcmp(env->input, "julia") == 0)
-			set_julia(env);
-	}
+	if (ft_strcmp(env->input, "serpienski") == 0)
+		set_serpienski(env);
+	if (ft_strcmp(env->input, "mandelbrot") == 0)
+		set_mandelbrot(env);
+	if (ft_strcmp(env->input, "julia") == 0)
+		set_julia(env);
 	return (0);
 }
 
@@ -67,24 +41,18 @@ int		my_mouse_funct(int keycode, int x, int y, t_env *env)
 	{
 		env->xzoom *= 1.05;
 		env->yzoom *= 1.05;
-		if (ft_strcmp(env->input, "serpienski") == 0)
-			set_serpienski(env);
-		if (ft_strcmp(env->input, "mandelbrot") == 0)
-			set_mandelbrot(env);
-		if (ft_strcmp(env->input, "julia") == 0)
-			set_julia(env);
 	}
 	if (keycode == 5)
 	{
 		env->xzoom /= 1.05;
 		env->yzoom /= 1.05;
-		if (ft_strcmp(env->input, "serpienski") == 0)
-			set_serpienski(env);
-		if (ft_strcmp(env->input, "mandelbrot") == 0)
-			set_mandelbrot(env);
-		if (ft_strcmp(env->input, "julia") == 0)
-			set_julia(env);
 	}
+	if (ft_strcmp(env->input, "serpienski") == 0)
+		set_serpienski(env);
+	if (ft_strcmp(env->input, "mandelbrot") == 0)
+		set_mandelbrot(env);
+	if (ft_strcmp(env->input, "julia") == 0)
+		set_julia(env);
 	return (0);
 }
 
@@ -109,7 +77,7 @@ int		main(int ac, char **av)
 		ft_putstr("Available fractals:\nserpienski\nmandelbrot\njulia\n");
 		return (0);
 	}
-	if (ft_strcmp(av[1],"serpienski") == 0)
+	if (ft_strcmp(av[1], "serpienski") == 0)
 		draw_serpienski();
 	if (ft_strcmp(av[1], "mandelbrot") == 0)
 		draw_mandelbrot();
