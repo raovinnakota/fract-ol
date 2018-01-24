@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 16:05:36 by rvinnako          #+#    #+#             */
-/*   Updated: 2018/01/23 18:27:54 by rvinnako         ###   ########.fr       */
+/*   Updated: 2018/01/23 18:33:41 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		my_key_funct(int keycode, t_env *env)
 		env->yoff += -5;
 	if (keycode == 0 && env->color < 9999999)
 		env->color *= 1.05;
-	if (keycode == 1 && env->color > 5)
+	if (keycode == 1 && env->color > 1.5)
 		env->color /= 1.05;
 	if (keycode == 2)
 		reset_env(env);
