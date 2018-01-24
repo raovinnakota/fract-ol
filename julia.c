@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/23 12:13:43 by rvinnako          #+#    #+#             */
-/*   Updated: 2018/01/23 18:08:39 by rvinnako         ###   ########.fr       */
+/*   Updated: 2018/01/23 18:19:01 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int		in_julia(t_env *env, int x, int y)
 		(julia->iter)++;
 	}
 	if (julia->iter < julia->max_iter)
-		return (julia->iter * 0xD3D3D3);
+		return (julia->iter * 0xD3D3D3 * env->color);
 	return (0xFFFFFF);
 }
 

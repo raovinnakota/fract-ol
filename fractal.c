@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 16:05:36 by rvinnako          #+#    #+#             */
-/*   Updated: 2018/01/23 18:05:36 by rvinnako         ###   ########.fr       */
+/*   Updated: 2018/01/23 18:18:18 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,12 @@ int		my_key_funct(int keycode, t_env *env)
 		env->xoff += 5;
 	if (keycode == 126)
 		env->yoff += -5;
+	if (keycode == 0 && env->color < 9999999)
+		env->color *= 5;
+	if (keycode == 1 && env->color > 5)
+		env->color /= 5;
+	if (keycode == 2)
+		reset_env(env);
 	if (ft_strcmp(env->input, "serpienski") == 0)
 		set_serpienski(env);
 	if (ft_strcmp(env->input, "mandelbrot") == 0)
@@ -77,6 +83,9 @@ int		main(int ac, char **av)
 		ft_putstr("Available fractals:\nserpienski\nmandelbrot\njulia\n");
 		return (0);
 	}
+	ft_putstr("To toggle color, use 'a'/'s'\n");
+	ft_putstr("Use the arrow keys to move around\n");
+	ft_putstr("To reset image to initial state, use 'd'");
 	if (ft_strcmp(av[1], "serpienski") == 0)
 		draw_serpienski();
 	if (ft_strcmp(av[1], "mandelbrot") == 0)
