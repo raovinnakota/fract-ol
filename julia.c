@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/23 12:13:43 by rvinnako          #+#    #+#             */
-/*   Updated: 2018/01/23 19:06:18 by rvinnako         ###   ########.fr       */
+/*   Updated: 2018/01/24 17:20:59 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int		in_julia(t_env *env, int x, int y)
 {
+	int				i;
 	t_mandelbrot	*julia;
 
 	julia = init_mandelbrot();
@@ -32,7 +33,12 @@ int		in_julia(t_env *env, int x, int y)
 		(julia->iter)++;
 	}
 	if (julia->iter < julia->max_iter)
-		return (julia->iter * 0xD3D3D3 * env->color);
+	{
+		i = julia->iter;
+		free(julia);
+		return (i * 0xD3D3D3 * env->color);
+	}
+	free(julia);
 	return (0xFFFFFF);
 }
 

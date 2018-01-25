@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 13:28:59 by rvinnako          #+#    #+#             */
-/*   Updated: 2018/01/23 18:15:14 by rvinnako         ###   ########.fr       */
+/*   Updated: 2018/01/24 17:29:11 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,6 @@ void				draw_mandelbrot(void);
 void				set_julia(t_env *env);
 void				draw_julia(void);
 void				reset_env(t_env *env);
+void				free_env(t_env *env);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 16:05:36 by rvinnako          #+#    #+#             */
-/*   Updated: 2018/01/23 19:01:17 by rvinnako         ###   ########.fr       */
+/*   Updated: 2018/01/24 17:46:55 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,12 @@
 int		my_key_funct(int keycode, t_env *env)
 {
 	if (keycode == 53)
+	{
+		free_env(env);
+		free(env);
+		env = NULL;
 		exit(0);
+	}
 	if (keycode == 123)
 		env->xoff += -5;
 	if (keycode == 125)

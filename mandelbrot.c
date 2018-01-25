@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/18 18:27:48 by rvinnako          #+#    #+#             */
-/*   Updated: 2018/01/23 18:18:53 by rvinnako         ###   ########.fr       */
+/*   Updated: 2018/01/24 17:22:04 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int		in_mandelbrot(t_env *env, int x, int y)
 {
+	int				i;
 	t_mandelbrot	*brot;
 
 	brot = init_mandelbrot();
@@ -32,7 +33,12 @@ int		in_mandelbrot(t_env *env, int x, int y)
 		(brot->iter)++;
 	}
 	if (brot->iter < brot->max_iter)
-		return (brot->iter * 0xD3D3D3 * env->color);
+	{
+		i = brot->iter;
+		free(brot);
+		return (i * 0xD3D3D3 * env->color);
+	}
+	free(brot);
 	return (0xFFFFFF);
 }
 
